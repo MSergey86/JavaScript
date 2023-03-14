@@ -83,14 +83,14 @@ class Basket {
     }
     
     add(good, qty) {
-    for (let j = 0; j < this.goods.length; j ++) {
-      if (this.goods[j].id == good.id) {
-        good.amount += qty;
-        return;
-      }
-    }
-    good.amount = qty;
-    this.goods.push(good, ); // добавляет в массив товар
+        for (let j = 0; j < this.goods.length; j ++) {
+          if (this.goods[j].id == good.id) {
+            this.goods[j].amount += qty;
+            return;
+          }
+        }
+        good.amount = qty;
+        this.goods.push(good, ); // добавляет в массив товар
     }
 
     remove(good, qty) {
@@ -148,7 +148,8 @@ console.log('amount: ', basket1.totalAmount);
 console.log('sum: ', basket1.totalSum);
 console.log('---------------------------------------');
 
-basket1.add(basketGood5, 50);
+basket1.add(good3, 50);
+basket1.add(good5, 5);
 console.log(basket1);
 console.log("----!!!!!!!!!!!!!!!!!---------")
 
