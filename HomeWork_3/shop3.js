@@ -89,8 +89,7 @@ class Basket {
             return;
           }
         }
-        good.amount = qty;
-        this.goods.push(good, ); // добавляет в массив товар
+        this.goods.push(new BasketGood (good, qty)); // добавляет в массив товар
     }
 
     remove(good, qty) {
@@ -136,7 +135,7 @@ let basketGood1 = new BasketGood(good1, 1);
 let basketGood2 = new BasketGood(good2, 1);
 let basketGood3 = new BasketGood(good3, 1);
 let basketGood4 = new BasketGood(good4, 1);
-let basketGood5 = new BasketGood(good5, 1);
+//let basketGood5 = new BasketGood(good5, 1);
 
 //console.log(basketGood1);
 
