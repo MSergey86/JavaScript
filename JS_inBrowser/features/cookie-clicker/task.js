@@ -11,3 +11,5 @@ size.onclick = () => {
     count.textContent = Number(count.textContent) + 1;
    }
 }
+
+// img.width = ++counter.textContent % 2 ? 250 : 200; // через тернарное выражение
