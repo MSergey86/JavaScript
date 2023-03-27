@@ -18,7 +18,7 @@ function clicker() {
             } 
         }
     }
-    setTimeout(clicker, 1); // ещё раз, через миллисекунду
+  //  setTimeout(clicker, 1); // ещё раз, через миллисекунду
   }
   
   clicker();
