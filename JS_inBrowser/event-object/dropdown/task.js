@@ -28,5 +28,5 @@ function listActiv() {
 
 function btnActiv(listBtn) {
     btn.textContent = listBtn.textContent;
-
+    list.className = 'dropdown__list';
 }
