@@ -22,12 +22,12 @@ widget.addEventListener('click', () => {
 function main () {
             input.addEventListener('keyup', (key) => {
             if (key.code == 'Enter') {
-                if (input.value.length > 0 ) {
+                if (/\S/.test(input.value)) {
                     let date = new Date();
                     var botMessage = botMessages[Math.floor(Math.random()*botMessages.length)]
                     messages.innerHTML += `
                     Сообщение от клиента
-                    <div class="message">
+                    <div class="message message_client">
                         <div class="message__time">${date.toLocaleTimeString()}</div>
                         <div class="message__text">
                         ${input.value}
@@ -40,6 +40,7 @@ function main () {
                     </div>
                     `
                 }
+		input.value = ''
             }
         })
 }
