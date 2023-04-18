@@ -12,7 +12,7 @@ let arr = Array.from(span);
 
 let speed = 1000;
 
-setInterval( () => {
+let timerId = setTimeout(function repeat() {
     for (let i = 0; i < spanQty; i++) {
         if (span[i].classList.contains('rotator__case_active')) {
             span[i].classList.toggle('rotator__case_active');
@@ -27,4 +27,5 @@ setInterval( () => {
             break;
         }
     }
-}, speed) // не меняется интервал, не справился с этим. Если подскажете, буду благодарен
+    timerId = setTimeout(repeat, speed);
+}, speed)
