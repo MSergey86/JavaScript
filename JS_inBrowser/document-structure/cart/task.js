@@ -26,27 +26,21 @@ for (let i = 0; i < dec.length; i++) {   //уменьшение количест
     })
 }
 
+
 for (let i = 0; i < productAddButton.length; i ++) {  // добавление в корзину
     productAddButton[i].addEventListener('click', (e) => {
         e.preventDefault();
-        let existProductInCart = false;
-        let cartProducts = document.getElementsByClassName('cart__product')
-        Array.from(cartProducts).forEach(elem => {
-            if (elem.getAttribute('data-id') == i+1) {
-                elem.children[1].textContent = Number(elem.children[1].textContent) + Number(productQuantity[i].textContent)
-                // console.log(elem.children[1].textContent)
-                // console.log(Number(productQuantity[i].textContent))
-                existProductInCart = true;
-            }
-        })
-
-        if (existProductInCart == false) {
+        let cartProducts = document.querySelectorAll('.cart__product ');
+        const productInCard = Array.from(cartProducts).findIndex(item => item.getAttribute('data-id') == i+1);
+        if(productInCard == -1) {   // добавлять новый элемент продукта
             basket[0].insertAdjacentHTML('beforeend', 
             `<div class="cart__product" data-id="${i+1}">
-                <img class="cart__product-image" src="${image[i].src}">
-                <div class="cart__product-count">${productQuantity[i].textContent}</div>
+            <img class="cart__product-image" src="${image[i].src}">
+            <div class="cart__product-count">${productQuantity[i].textContent}</div>
             </div>`
-            )
+            )                                         
+        } else {                    // увеличивать количество у productInCard
+            cartProducts[productInCard].children[1].textContent = Number(cartProducts[productInCard].children[1].textContent) + Number(productQuantity[i].textContent)                                
         }
     })
 }
