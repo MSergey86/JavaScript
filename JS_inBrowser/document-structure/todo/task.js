@@ -2,32 +2,47 @@
 const input = document.getElementById('task__input')
 const taskAddBtn = document.getElementById('tasks__add')
 let taskList = document.getElementById('tasks__list')
+let taskListArray
+let closeTask
 
-function taskAdd(e) {
-    e.preventDefault()
-    if (/\S/.test(input.value)) {     //проверка чтоб был хоть один символ
+function taskAdd(inputValue) {
+
     taskList.insertAdjacentHTML('beforeend',
     `<div class="task">
     <div class="task__title">
-    ${input.value}
+    ${inputValue}
     </div>
     <a href="#" class="task__remove">&times;</a>
     </div>`
     )
-    input.value = ''
-    }
+    getArrays();
 }
 
-function del() {
-    let closeTask = document.getElementsByClassName('task__remove');
-    
-    [...closeTask].forEach(element => {
-          element.addEventListener('click', (e) => {
-            e.target.closest(".task").remove();
-          })
-    })
-}
+function getArrays() {
+    taskListArray = Array.from(document.querySelectorAll('div.task'));
+    closeTask = Array.from(document.querySelectorAll('a.task__remove'));
+};
 
-setInterval(() => del(), 100)
+function remove() {
+    if (closeTask) {
+        closeTask.forEach(function (button, index) {
+            button.onclick = function () {
+                taskListArray[index].remove();
+                return false;
+            };
+        });
+    };
+};
 
-taskAddBtn.addEventListener("click", taskAdd);
+input.oninput = function () {
+    taskAddBtn.onclick = function () {
+        if (input.value) {
+            taskAdd(input.value);
+            input.value = '';
+        };
+        remove();
+        return false;
+    };
+};
+
+remove()
