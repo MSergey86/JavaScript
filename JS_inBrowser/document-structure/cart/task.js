@@ -39,7 +39,8 @@ for (let i = 0; i < productAddButton.length; i ++) {  // добавление в
             <div class="cart__product-count">${productQuantity[i].textContent}</div>
             </div>`
             )                                         
-        } else {                    // увеличивать количество у productInCard
+        } 
+        else {                    // увеличивать количество у productInCard
             cartProducts[productInCard].children[1].textContent = Number(cartProducts[productInCard].children[1].textContent) + Number(productQuantity[i].textContent)                                
         }
     })
