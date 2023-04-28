@@ -1,27 +1,4 @@
 
-
-// const progress = document.getElementById( 'progress' );
-// const sendButton = document.getElementById('send')
-// const formData = new FormData(form);
-
-
-// let xhr = new XMLHttpRequest();
-// sendButton.addEventListener('click', (e) => {
-//     e.preventDefault();
-//     xhr.open('POST', 'https://students.netoservices.ru/nestjs-backend/poll');
-//     	xhr.onprogress = function (e) {
-// 		progress.value = e.loaded / 1000000;
-// 	}
-//     xhr.send(formData);
-// })
-
-
-
-
-
-
-
-
 const progress = document.getElementById('progress');
 const send = document.getElementById('send');
 const formData = new FormData(form);
